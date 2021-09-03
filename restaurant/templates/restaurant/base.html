@@ -1,0 +1,71 @@
+<!DOCTYPE html> {% load static %}
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'restaurant/css/style.css' %}">
+    <title>Sals Restaurant</title>
+    {% block head %} {% endblock %}
+</head>
+
+<body>
+    <nav>
+        <div class="hamburger-icon" tabindex="3948" aria-label="Open the menu.">
+            <div class="hamburger-line top"></div>
+            <div class="hamburger-line mid"></div>
+            <div class="hamburger-line bot"></div>
+        </div>
+        <div class="sals-logo">
+            <div class="pizza-container">
+                <div class="pizza-base">
+                    <div class="tomato">
+                        <div class="cheese">
+                            <div class="pepperoni pepperoni-1"></div>
+                            <div class="pepperoni pepperoni-2"></div>
+                            <div class="pepperoni pepperoni-3"></div>
+                            <div class="pepperoni pepperoni-4"></div>
+                            <div class="pepperoni pepperoni-5"></div>
+                            <div class="pepperoni pepperoni-6"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sals-text">SAL'S</div>
+            </div>
+        </div>
+    </nav>
+    <div class="nav-menu">
+        <ul class="nav-list">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'menu' %}">Menu</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'edit' %}">Edit Menu</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'menu' %}">Menu</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'book' %}">Book a Table</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'login' %}">Login</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+    {% block content %} {% endblock %}
+    <script src="{% static 'restaurant/js/main.js' %}"></script>
+</body>
+
+</html>

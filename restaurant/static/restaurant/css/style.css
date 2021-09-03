@@ -1,4 +1,16 @@
+:root {
+    --clr-bg: hsl(0, 0, 80%);
+    --clr-base: hsl(270, 50%, 50%);
+}
+
+html {
+    background: var(--clr-bg);
+}
+
+body {
+    margin: 0;
+}
+
 h1 {
-    color: blue;
-    background: green;
+    color: var(--clr-base);
 }

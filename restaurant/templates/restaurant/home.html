@@ -1,15 +1,14 @@
-<!DOCTYPE html> {% load static %}
+{% extends 'restaurant/base.html' %} {% load static %} {% block content %}
+<main>
+    <div class="img-container">
+        <img src="{% static 'restaurant/img/main cooking image.jpg' %}" alt="A photo of a chef cooking, laughing as flames shoot from the pan." class="main-img" />
+    </div>
+    <div class="view-menu">
+        <div class="view-menu-text">
+            <a href="{% url 'menu' %}" class="view-menu-link">View Full Menu</a>
+            <p>Whether you want to prepare for your arrival, or just check out the allergens, our delicious menu is always here for your viewing.</p>
+        </div>
+    </div>
+</main>
 
-<html>
-
-<head>
-    <link rel="stylesheet" href="{% static 'restaurant/css/style.css' %}">
-    <title>Sals Restaurant</title>
-</head>
-
-<body>
-    <h1>Test</h1>
-    <script src="{% static 'restaurant/js/main.js' %}"></script>
-</body>
-
-</html>
+{% endblock %}
