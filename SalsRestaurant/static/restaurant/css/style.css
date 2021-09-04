@@ -4,7 +4,7 @@
     --clr-base: hsl(270, 100%, 50%);
     --clr-text: hsl(0, 100%, 0%);
     --clr-text-white: hsl(0, 0%, 100%);
-    --clr-block: hsl(0, 0%, 21%);
+    --clr-block: hsl(0, 0%, 20%);
     /* SALS LOGO COLOURS */
     --clr-pizza-base: hsl(36, 67%, 57%);
     --clr-pizza-base-dark: hsl(36, 67%, 37%);
@@ -29,6 +29,7 @@ html {
 
 body {
     margin: 0;
+    letter-spacing: .1rem;
 }
 
 a:hover,
@@ -90,21 +91,32 @@ nav {
 
 .nav-menu {
     position: fixed;
-    display: none;
     top: 5.5rem;
     width: 100%;
-    height: 100vh;
+    height: 0;
     background: var(--clr-bg);
-    transform: translateY(-100%);
-    transition: transform 0.3s ease-out;
+    transition: height 0.3s ease-out;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-list {
-    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .nav-item {
     color: var(--clr-text);
+    font-size: 3rem;
+    margin: 1rem;
+    transition: transform .3s;
+}
+
+.nav-item:hover {
+    transform: scale(1.2);
 }
 
 main {
@@ -137,6 +149,11 @@ main {
     text-align: center;
 }
 
+.view-menu-link:hover,
+.view-menu-link:focus {
+    text-decoration: underline;
+}
+
 a {
     color: var(--clr-text-white);
 }
@@ -151,36 +168,61 @@ p {
 @media (prefers-color-scheme: dark) {
      :root {
         /* dark mode */
-        --clr-bg: hsl(0, 0%, 20%);
+        --clr-bg: hsl(0, 0%, 10%);
         --clr-base: hsl(270, 100%, 80%);
         --clr-text: hsl(0, 100%, 100%);
     }
 }
 
-@media (max-width: 1023px) {
+.light-mode {
+    /* toggleable light mode */
+    --clr-bg: hsl(0, 0%, 95%);
+    --clr-base: hsl(270, 100%, 50%);
+    --clr-text: hsl(0, 100%, 0%);
+    --clr-text-white: hsl(0, 0%, 100%);
+    --clr-block: hsl(0, 0%, 20%);
+}
+
+.dark-mode {
+    /* toggleable dark mode */
+    --clr-bg: hsl(0, 0%, 10%);
+    --clr-base: hsl(270, 100%, 80%);
+    --clr-text: hsl(0, 100%, 100%);
+}
+
+@media screen and (max-device-width: 768px) {
     html {
-        font-size: 10px;
+        /* font-size: 10px; */
     }
     .hamburger-icon {
-        width: 6rem;
-        height: 6rem;
+        width: 5rem;
+        height: 5rem;
         gap: .8rem;
     }
     .hamburger-line {
         height: .2rem;
-        width: 4rem;
+        width: 3rem;
     }
     .top {
-        transform-origin: 3.4rem;
+        transform-origin: 2.9rem;
     }
     .bot {
-        transform-origin: 3.4rem;
+        transform-origin: 2.9rem;
+    }
+    .nav-item {
+        font-size: 8rem;
     }
     .img-container {
-        height: 80rem;
+        height: 60rem;
     }
-    .login-button {
-        font-size: 5em;
+    .view-menu {
+        padding: 3.5rem 4rem;
+    }
+    .view-menu-text {
+        font-size: 5rem;
+    }
+    p {
+        font-size: 4rem;
     }
 }
 
@@ -190,7 +232,6 @@ p {
 .pizza-container {
     width: 14rem;
     height: 5rem;
-    /* background: #22395d; */
     padding-top: .5rem;
     display: flex;
     justify-content: center;
