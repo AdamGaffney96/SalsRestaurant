@@ -280,8 +280,8 @@ main {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    align-items: center;
     border-radius: .25rem;
+    align-items: center;
 }
 
 .pizza-base {
