@@ -3,10 +3,16 @@
     <div class="img-container">
         <img src="{% static 'restaurant/img/main cooking image.jpg' %}" alt="A photo of a chef cooking, laughing as flames shoot from the pan." class="main-img" />
     </div>
-    <div class="view-menu">
-        <div class="view-menu-text">
-            <a href="{% url 'menu' %}" class="view-menu-link">View Full Menu</a>
+    <div class="page-block view-menu">
+        <div class="page-block-text view-menu-text">
+            <a href="{% url 'menu' %}" class="view-menu-link"><h4>View Full Menu</h4></a>
             <p>Whether you want to prepare for your arrival, or just check out the allergens, our delicious menu is always here for your viewing.</p>
+        </div>
+    </div>
+    <div class="page-block book-table">
+        <div class="page-block-text book-table-text">
+            <a href="{% url 'book' %}" class="book-table-link"><h4>Book a Table</h4></a>
+            <p>If you feel ready to visit us, you can reserve a table above or just come on in!</p>
         </div>
     </div>
 </main>
